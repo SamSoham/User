@@ -13,17 +13,20 @@ export default function Navbar(){
         padding:{sm:"10px 30px",xs:"0px 10px"},
         flexDirection:"row",justifyContent:"space-between",
         background:"transparent",
-        backdropFilter:'blur(30px)',
-        boxShadow:"2px 0px 10px #101e4a"
-        
+        backdropFilter:'blur(30px)',      
    }}>
     <Stack direction="row" alignItems="center" gap="10px">
     
-    <Typography sx={{fontSize:{md:"24px",xs:"16px"},fontWeight:"500",color:"white"}} >LOGO</Typography>
+    <Typography sx={{fontSize:{md:"24px",xs:"16px"},fontWeight:"500",color:"black"}} ><Link to="/" >LOGO</Link></Typography>
     </Stack>
-    <IconButton sx={{ color:"white" }}>
+    <Stack direction="row">
+      <Button style={{backgroundColor:"black",color:"white",padding:"4px 8px"}}>
+         Logout
+      </Button>
+    <IconButton sx={{ color:"black" }}>
           <FormatAlignLeftIcon onClick={() => setOpen(true)}  />
     </IconButton>
+    </Stack>
     <SwipeableDrawer
      PaperProps={{
         sx: {
@@ -48,6 +51,13 @@ export default function Navbar(){
           </div>
           <Divider sx={{backgroundColor:"white"}} />
           <List>
+          <ListItem onClick={()=>setOpen(false)}>
+            <Link to="#">
+            <Typography sx={{color:"white",fontWeight:"500"}}>
+        User Profile
+       </Typography>
+          </Link>
+            </ListItem>
             <ListItem onClick={()=>setOpen(false)}>
             <Link to="/">
             <Typography sx={{color:"white",fontWeight:"500"}}>
@@ -56,7 +66,7 @@ export default function Navbar(){
           </Link>
             </ListItem>
             <ListItem onClick={()=>setOpen(false)}>
-            <Link to="/">
+            <Link to="/contactus">
             <Typography sx={{color:"white",fontWeight:"500"}}>
         Contact / Help
        </Typography>
@@ -66,13 +76,6 @@ export default function Navbar(){
             <Link to="/">
             <Typography sx={{color:"white",fontWeight:"500"}}>
         About Us
-       </Typography>
-          </Link>
-            </ListItem>
-            <ListItem onClick={()=>setOpen(false)}>
-            <Link to="#">
-            <Typography sx={{color:"white",fontWeight:"500"}}>
-        User Profile
        </Typography>
           </Link>
             </ListItem>

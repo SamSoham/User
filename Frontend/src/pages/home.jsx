@@ -27,13 +27,13 @@ export default function Home() {
     <Box sx={{ display:"flex",justifyContent:"center",alignItems:"center" }}>
       <Stack sx={{gap:"8px",alignItems:"center",maxWidth:{xs:"300px",sm:"450px"}}}>
         <Image src={GIF} width={300} />
-        <Typography variant="h4" color="white">
+        <Typography variant="h4" color="black">
           Hello!
         </Typography>
-        <Typography variant="h6" color="white">
+        <Typography variant="h6" color="black">
           Please Select a Role to move forward
         </Typography>
-        <FormControl sx={{ color: "white" }}>
+        <FormControl sx={{ color: "black" }}>
 
           <RadioGroup
             row
@@ -44,7 +44,7 @@ export default function Home() {
               value="Therapist"
               control={
                 <Radio
-                  sx={{ color: "white" }}
+                  sx={{ color: "black" }}
                   onClick={(e) => setRole(e.target.value)}
                 />
               }
@@ -54,7 +54,7 @@ export default function Home() {
               value="User"
               control={
                 <Radio
-                  sx={{ color: "white" }}
+                  sx={{ color: "black" }}
                   onClick={(e) => setRole(e.target.value)}
                 />
               }
