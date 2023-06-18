@@ -1,10 +1,22 @@
 import { Stack, Typography, Button,IconButton,SwipeableDrawer,List,ListItem,Divider,AppBar,Box } from "@mui/material";
 import FormatAlignLeftIcon  from "@mui/icons-material/Menu";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link,useNavigate } from "react-router-dom";
 export default function Navbar(){
   const [open, setOpen] = useState(false);
+  const [authentincated,setAuthenticated] = useState(false)
+  const role = localStorage.getItem("user")
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (localStorage.getItem("user")) setAuthenticated(true);
+  }, [role]);
+
+  function logout(){
+   localStorage.removeItem("user");
+    setAuthenticated(false)
+    navigate('/')
+ }
 
     return( 
   <AppBar elevation={2}  sx={{
@@ -20,7 +32,7 @@ export default function Navbar(){
     <Typography sx={{fontSize:{md:"24px",xs:"16px"},fontWeight:"500",color:"black"}} ><Link to="/" >LOGO</Link></Typography>
     </Stack>
     <Stack direction="row">
-      <Button style={{backgroundColor:"black",color:"white",padding:"4px 8px"}}>
+      <Button style={{backgroundColor:"black",color:"white",padding:"4px 8px",display:authentincated?"block":"none"}} onClick={logout}>
          Logout
       </Button>
     <IconButton sx={{ color:"black" }}>

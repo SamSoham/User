@@ -17,9 +17,9 @@ export default function Home() {
   const navigate = useNavigate();
   useEffect(() => {
     if (role === "Therapist") {
-      navigate("/therapist");
+      navigate("/register");
     } else if (role === "User") {
-      navigate("/user");
+      navigate("/userRegister");
     }
   }, [role]);
 
@@ -34,7 +34,6 @@ export default function Home() {
           Please Select a Role to move forward
         </Typography>
         <FormControl sx={{ color: "black" }}>
-
           <RadioGroup
             row
             aria-labelledby="demo-row-radio-buttons-group-label"
