@@ -64,3 +64,36 @@ module.exports.login = async (req,res,next)=>{
          next(ex)
       }
    }
+
+   module.exports.getuser = async(req,res,next) =>{
+      try{
+         const user = await User.find({role:"User"})
+         if(user){
+            return res.json({msg:"User details fetched",status:true,user}).status(200)
+         }
+         else{
+            return res.json({msg:"No user in Database",status:false}).status(404)
+         }
+       
+      }
+      catch(ex){
+         next(ex)
+      }
+   }
+
+   module.exports.changepwd = async(req,res,next) =>{
+      try{
+          const {id,password} = req.body;
+          const hashPwd = await bcrypt.hash(password,10);
+          const user = await User.findByIdAndUpdate({_id:id},{password:hashPwd},{new:true})
+          if(user){
+            res.json({msg:"Password Updated Successfully",status:true,user}).status(200)
+          }
+          else{
+            res.json({msg:"Internal error Occured"}).status(500)
+          }
+      }
+      catch(err){
+        next(ex)
+      }
+   }

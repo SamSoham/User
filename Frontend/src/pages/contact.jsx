@@ -2,7 +2,7 @@ import { Box, Button, Stack, TextField, Typography,Snackbar,Alert } from "@mui/m
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { messageRoute } from "../utils/APIroutes";
-
+import { useNavigate } from "react-router-dom";
 export default function Contact(){
   
 const [username,setUsername] = useState("")
@@ -11,7 +11,7 @@ const [feedback,setFeedback] = useState("")
 const [open,setOpen] = useState(false)
 const [opens,setOpens] = useState(false)
 const [msg,setMsg] = useState("")
-
+const navigate = useNavigate()
 
 function validation(){
   if(email==="" || feedback===""){
@@ -48,6 +48,13 @@ useEffect(()=>{
   const user = JSON.parse(localStorage.getItem("user"))
   setUsername(user.username)
 },[])
+
+useEffect(()=>{
+  if(!localStorage.getItem("user")){
+   navigate('/')
+  }
+})
+
     return(
   <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",minHeight:"100vh"}}>
     <Stack sx={{background:"#ffffff",gap:"24px",width:{sm:"450px",xs:"280px"},padding:{sm:"32px",xs:"16px"},borderRadius:{sm:"16px",xs:"8px"}}}>

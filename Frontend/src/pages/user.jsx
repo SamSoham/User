@@ -2,6 +2,9 @@ import { Box } from '@mui/material';
 import { Chart } from '../components/chart';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+
+
 export default function User(){
  const navigate = useNavigate()
  

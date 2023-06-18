@@ -3,9 +3,9 @@ import Home from "./pages/home";
 import User from "./pages/user";
 import Therapist from "./pages/therapist";
 import Contact from "./pages/contact";
-import { Chart } from "./components/chart";
 import Login from "./pages/login";
 import Register from "./pages/register";
+import ChangePWd from "./pages/changePassword";
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
       <Route path="/user"  element={<User/>} />
       <Route path="/therapist"  element={<Therapist/>} />
       <Route path="/contactus" element={<Contact/>}/>
+      <Route path="/changepwd" element={<ChangePWd/>}/>
     </Routes>
     </>
   );

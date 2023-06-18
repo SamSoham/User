@@ -71,7 +71,7 @@ export default function Navbar(){
           </Link>
             </ListItem>
             <ListItem onClick={()=>setOpen(false)}>
-            <Link to="/">
+            <Link to="/changepwd">
             <Typography sx={{color:"white",fontWeight:"500"}}>
         Change Password
        </Typography>
