@@ -64,7 +64,7 @@ export default function Navbar(){
           <Divider sx={{backgroundColor:"white"}} />
           <List>
           <ListItem onClick={()=>setOpen(false)}>
-            <Link to="#">
+            <Link to="/profile">
             <Typography sx={{color:"white",fontWeight:"500"}}>
         User Profile
        </Typography>
@@ -85,7 +85,7 @@ export default function Navbar(){
           </Link>
             </ListItem>
             <ListItem onClick={()=>setOpen(false)}>
-            <Link to="/">
+            <Link to="#">
             <Typography sx={{color:"white",fontWeight:"500"}}>
         About Us
        </Typography>

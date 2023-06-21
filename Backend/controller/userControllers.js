@@ -4,7 +4,7 @@ const Feedback = require('../model/messageModel')
 const bcrypt = require('bcrypt')
 module.exports.register = async (req,res,next)=>{
  try{
-    const {username,pwd,role} = req.body
+    const {username,pwd,role,phnnum,email} = req.body
     // console.log(req.body)
     const Usernamecheck = await User.findOne({username})
     if(Usernamecheck){
@@ -13,7 +13,7 @@ module.exports.register = async (req,res,next)=>{
     }
     const hashPwd = await bcrypt.hash(pwd,10);
     const user = await User.create({
-     username,password:hashPwd,role
+     username,password:hashPwd,role,phonenumber:phnnum,email
     });
     // console.log(user)
     delete user.password;

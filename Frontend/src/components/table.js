@@ -1,7 +1,8 @@
 import { Table,TableHead,TableRow,TableBody,TableCell,TableContainer,Paper } from "@mui/material";
-
+import { Link } from "react-router-dom";
 
 export default function DataTable({data}){
+
 
  let Data = data
 
@@ -16,10 +17,15 @@ export default function DataTable({data}){
             <TableBody>
               {Data?.map((n)=>{
                 return(
-                    <TableRow>
+                  //Link will be changed to /user/:id to fetch data  of particular user
+                    <TableRow >
+                    
                         <TableCell>
+                        <Link to='/user'>
                             {n.username}
+                            </Link>
                         </TableCell>
+                      
                     </TableRow>
                 )
               })}

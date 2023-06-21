@@ -17,7 +17,7 @@ export default function Home() {
   const navigate = useNavigate();
   useEffect(() => {
     if (role === "Therapist") {
-      navigate("/register");
+      navigate("/login");
     } else if (role === "User") {
       navigate("/userRegister");
     }

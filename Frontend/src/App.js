@@ -6,6 +6,7 @@ import Contact from "./pages/contact";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import ChangePWd from "./pages/changePassword";
+import Profile from "./pages/profile";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path="/therapist"  element={<Therapist/>} />
       <Route path="/contactus" element={<Contact/>}/>
       <Route path="/changepwd" element={<ChangePWd/>}/>
+      <Route path="/profile" element={<Profile/>}/>
     </Routes>
     </>
   );

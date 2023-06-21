@@ -19,6 +19,8 @@ import { Box, Stack, Typography, TextField,InputAdornment,FormControl,OutlinedIn
             username:"",
             pwd:"",
             cpwd:"",
+            email:"",
+            phnnum:""
         })
     
         const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -33,12 +35,17 @@ import { Box, Stack, Typography, TextField,InputAdornment,FormControl,OutlinedIn
             setOpen(false);
           }
         function handleValidation(){
-            const {username,pwd,cpwd} = values
+            const {username,pwd,cpwd,email,phnnum} = values
             if(username===""){
                 setMsg("Username Required");
                 setOpen(true);
                 return false;
-            }       
+            }    
+            else if(email==="" || phnnum===""){
+              setMsg(phnnum);
+              setOpen(true);
+              return false;
+            }   
             else if(username.length<8){
                 setMsg("Username should be of 8 character");
                 setOpen(true);
@@ -65,9 +72,9 @@ import { Box, Stack, Typography, TextField,InputAdornment,FormControl,OutlinedIn
         function handleSubmit(event){
             event.preventDefault();
            if(handleValidation()){
-            const {username,pwd} = values
+            const {username,pwd,email,phnnum} = values
             axios.post(registerRoute,{
-                username,pwd,role
+                username,pwd,role,email,phnnum
             }).then((res)=>{
                 if(res.data.status===false){
                     setMsg(res.data.msg);
@@ -116,6 +123,8 @@ import { Box, Stack, Typography, TextField,InputAdornment,FormControl,OutlinedIn
            }}>
             <Typography variant="h4" color="initial">Register</Typography>
             <TextField id="outlined-basic" label="Username" variant="outlined" name='username' onChange={(e)=>handleChange(e)} sx={{width:400}} />
+            <TextField id="outlined-basic" label="Phone Number" variant="outlined" name='phnnum' onChange={(e)=>handleChange(e)} sx={{width:400}} />
+            <TextField id="outlined-basic" label="Email" variant="outlined" name='email' onChange={(e)=>handleChange(e)} sx={{width:400}} />
              <FormControl sx={{ width:400 }} variant="outlined">
               <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
               <OutlinedInput
