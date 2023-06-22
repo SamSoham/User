@@ -7,6 +7,7 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import ChangePWd from "./pages/changePassword";
 import Profile from "./pages/profile";
+import Session from "./pages/session";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/contactus" element={<Contact/>}/>
       <Route path="/changepwd" element={<ChangePWd/>}/>
       <Route path="/profile" element={<Profile/>}/>
+      <Route path="/session" element={<Session/>}/>
     </Routes>
     </>
   );
