@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [role, setRole] = useState("");
+  const data = JSON.parse(localStorage.getItem("user"))
   const navigate = useNavigate();
   useEffect(() => {
     if (role === "Therapist") {
@@ -22,6 +23,15 @@ export default function Home() {
       navigate("/userRegister");
     }
   }, [role]);
+
+  useEffect(()=>{
+    if(data && data.role=== "Therapist"){
+      navigate('/therapist')
+    }
+    else if(data && data.role=== "User"){
+      navigate('/user')
+    }
+  },[])
 
   return (
     <Box sx={{ display:"flex",justifyContent:"center",alignItems:"center" }}>

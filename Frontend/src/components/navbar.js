@@ -35,7 +35,7 @@ export default function Navbar(){
       <Button style={{backgroundColor:"black",color:"white",padding:"4px 8px",display:authentincated?"block":"none"}} onClick={logout}>
          Logout
       </Button>
-    <IconButton sx={{ color:"black" }}>
+    <IconButton sx={{ color:"black",display:authentincated?"block":"none" }}>
           <FormatAlignLeftIcon onClick={() => setOpen(true)}  />
     </IconButton>
     </Stack>
